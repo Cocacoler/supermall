@@ -1,24 +1,33 @@
 <template>
   <div id="app">
+    <keep-alive exclude="Detail">
+      <router-view></router-view>
+    </keep-alive>
+    <main-tab-bar></main-tab-bar>
+    <icon></icon>
+    <svg-icon></svg-icon>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  import MainTabBar from 'content/mainTabbar/MainTabBar'
+  import Icon from 'content/Icon/Icon.vue'
+  import SvgIcon from 'content/Icon/svg.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      MainTabBar,
+      Icon,
+      SvgIcon
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "assets/css/base.css";
+
+  #app {
+    position: relative;
+  }
 </style>
